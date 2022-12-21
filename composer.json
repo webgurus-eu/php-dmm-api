@@ -1,0 +1,30 @@
+{
+    "name": "directmailmanager/php-dmm-api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Precub",
+            "email": "adrian@onebrandmarketing.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-client": "^1.0",
+        "php-http/client-common": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dmm\\": "lib/Dmm/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "Dmm\\Tests\\": "test/Dmm/Tests/"}
+    },
+    "require-dev": {
+        "php-http/curl-client": "^2.2",
+        "laminas/laminas-diactoros": "^2.24",
+        "php-http/mock-client": "^1.5"
+    }
+}
