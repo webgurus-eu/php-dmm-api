@@ -7,11 +7,11 @@ use Dmm\Helpers\DiscoverApi;
 use Dmm\HttpClient\Api\AbstractApi;
 use Dmm\HttpClient\Builder;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Http\Client\Common\Plugin;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
+use Http\Client\Common\Plugin\BaseUriPlugin;
+use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\Bearer;
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 final class Client
@@ -52,8 +52,8 @@ final class Client
 
     private function initDefaultPlugins(): void
     {
-        $this->httpClientBuilder->addPlugin(new Plugin\AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://jsonplaceholder.typicode.com')));
-        $this->httpClientBuilder->addPlugin(new Plugin\HeaderDefaultsPlugin([
+        $this->httpClientBuilder->addPlugin(new BaseUriPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://api.directmailmanager.com/api')));
+        $this->httpClientBuilder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'php-dmm-api ()',
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
