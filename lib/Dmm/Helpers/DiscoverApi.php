@@ -39,7 +39,7 @@ class DiscoverApi
                 continue;
             }
 
-            $apiObjects[strtolower($ref->getShortName())] = $ref->name;
+            $apiObjects[lcfirst($ref->getShortName())] = $ref->name;
 
 
         }
