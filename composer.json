@@ -1,11 +1,16 @@
 {
     "name": "directmailmanager/php-dmm-api",
     "type": "library",
+    "description": "A simple Object Oriented wrapper for DMM API, written with PHP",
     "license": "MIT",
     "authors": [
         {
             "name": "Adrian Precub",
             "email": "adrian@onebrandmarketing.com"
+        },
+        {
+            "name": "Levente Peter",
+            "email": "leventep@onebrandmarketing.com"
         }
     ],
     "require": {
@@ -23,13 +28,17 @@
         }
     },
     "autoload-dev": {
-        "psr-4": { "Dmm\\Tests\\": "test/Dmm/Tests/"}
+        "psr-4": { "Dmm\\Tests\\": "tests"}
     },
     "require-dev": {
         "php-http/mock-client": "^1.0",
         "php-http/message": "^1.13",
         "guzzlehttp/psr7": "^2.4",
         "php-http/logger-plugin": "^1.3",
-        "monolog/monolog": "^3.2"
+        "monolog/monolog": "^3.2",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
     }
 }

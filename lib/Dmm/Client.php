@@ -14,7 +14,7 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\Bearer;
 use InvalidArgumentException;
 
-final class Client
+class Client
 {
 
     private Builder $httpClientBuilder;
@@ -32,7 +32,7 @@ final class Client
 
     private function defineBasePath(): void
     {
-        define('__BASE_PATH__', dirname(__DIR__));
+        defined('__BASE_PATH__') or define('__BASE_PATH__', dirname(__DIR__));
     }
 
 
