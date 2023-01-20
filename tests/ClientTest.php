@@ -11,7 +11,7 @@ use Psr\Http\Client\ClientInterface;
 class ClientTest extends TestCase
 {
     /** @test */
-    public function shouldNotHaveToPassHttpClientToConstructor()
+    public function shouldNotHaveToPassHttpClientToConstructor(): void
     {
         $client = new Client('');
 
@@ -22,7 +22,7 @@ class ClientTest extends TestCase
      * @test
      * @dataProvider getApiClassesProvider
      */
-    public function shouldGetMagicApiInstance($apiName, $class)
+    public function shouldGetMagicApiInstance($apiName, $class): void
     {
         $client = new Client('');
 
@@ -30,14 +30,14 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    public function shouldNotGetMagicApiInstance()
+    public function shouldNotGetMagicApiInstance(): void
     {
         $this->expectException(BadMethodCallException::class);
         $client = new Client('');
         $client->doNotExist();
     }
 
-    public function getApiClassesProvider()
+    public function getApiClassesProvider(): array
     {
         return [
             ['customFields', CustomFields::class],

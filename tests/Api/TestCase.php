@@ -6,20 +6,18 @@ use Dmm\Client;
 use Dmm\HttpClient\Builder;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Http\Client\ClientInterface;
+use ReflectionException;
 use ReflectionMethod;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    abstract protected function getApiClass(): string;
-
     protected function getApiMock(): MockObject
     {
         $httpClient = $this->getMockBuilder(ClientInterface::class)
             ->onlyMethods(['sendRequest'])
             ->getMock();
-        $httpClient
-            ->expects($this->any())
-            ->method('sendRequest');
+
+        $httpClient->method('sendRequest');
 
         $client = new Client('', new Builder($httpClient));
 
@@ -29,11 +27,13 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             ->getMock();
     }
 
+    abstract protected function getApiClass(): string;
+
+    /**
+     * @throws ReflectionException
+     */
     protected function getMethod($object, $methodName): ReflectionMethod
     {
-        $method = new ReflectionMethod($object, $methodName);
-        $method->setAccessible(true);
-
-        return $method;
+        return new ReflectionMethod($object, $methodName);
     }
 }

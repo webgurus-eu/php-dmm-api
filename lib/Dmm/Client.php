@@ -5,6 +5,8 @@ namespace Dmm;
 use BadMethodCallException;
 use Dmm\Helpers\DiscoverApi;
 use Dmm\HttpClient\Api\AbstractApi;
+use Dmm\HttpClient\Api\CustomFields;
+use Dmm\HttpClient\Api\MailingLists;
 use Dmm\HttpClient\Builder;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
@@ -14,6 +16,10 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\Authentication\Bearer;
 use InvalidArgumentException;
 
+/**
+ * @method CustomFields customFields()
+ * @method MailingLists mailingLists()
+ */
 class Client
 {
 
