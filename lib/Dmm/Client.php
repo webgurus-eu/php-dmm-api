@@ -6,6 +6,7 @@ use BadMethodCallException;
 use Dmm\Helpers\DiscoverApi;
 use Dmm\HttpClient\Api\AbstractApi;
 use Dmm\HttpClient\Api\Addresses;
+use Dmm\HttpClient\Api\Artworks;
 use Dmm\HttpClient\Api\CustomFields;
 use Dmm\HttpClient\Api\MailingLists;
 use Dmm\HttpClient\Builder;
@@ -21,6 +22,7 @@ use InvalidArgumentException;
  * @method CustomFields customFields()
  * @method MailingLists mailingLists()
  * @method Addresses addresses()
+ * @method Artworks artworks()
  */
 class Client
 {
