@@ -84,6 +84,26 @@ class MailingListsTest extends TestCase
     }
 
 
+    public function testShouldShowMailingList(): void
+    {
+        $expectedArray = [
+            'id' => 'mlg_lst_62449s3e5c7eb',
+            'name' => 'Mailing List name',
+            'addresses_count' => 2,
+            'object' => 'mailing-list'
+        ];
+
+        $api = $this->getApiMock();
+
+        $api->expects($this->once())
+            ->method('get')
+            ->with("/mailing-lists/mlg_lst_62449s3e5c7eb")
+            ->willReturn($expectedArray);
+
+        $this->assertEquals($expectedArray, $api->retrieve('mlg_lst_62449s3e5c7eb'));
+    }
+
+
     public function testShouldCreateMailingList(): void
     {
         $expectedArray = [
