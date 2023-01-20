@@ -7,7 +7,7 @@ use Dmm\HttpClient\Api\CustomFields;
 class CustomFieldTest extends TestCase
 {
     /** @test */
-    public function shouldShowCustomFieldList()
+    public function shouldShowCustomFieldList(): void
     {
         $expectedArray = [
             'data' => [
@@ -29,13 +29,13 @@ class CustomFieldTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('/custom-fields')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->list());
     }
 
     /** @test */
-    public function shouldShowCustomField()
+    public function shouldShowCustomField(): void
     {
         $expectedArray = [
             'id' => 'cfld_63c7eae96b5ab',
@@ -51,13 +51,13 @@ class CustomFieldTest extends TestCase
         $api->expects($this->once())
             ->method('get')
             ->with('/custom-fields/cfld_63c7eae96b5ab')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('cfld_63c7eae96b5ab'));
     }
 
     /** @test */
-    public function shouldCreateCustomField()
+    public function shouldCreateCustomField(): void
     {
         $expectedArray = [
             'id' => 'cfld_63c7eae96b5ab',
@@ -73,19 +73,23 @@ class CustomFieldTest extends TestCase
         $api->expects($this->once())
             ->method('post')
             ->with('/custom-fields')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
-        $this->assertEquals($expectedArray, $api->create());
-    }
-
-    /** @test */
-    public function shouldUpdateCustomField()
-    {
-        $expectedArray = [
-            'id' => 'cfld_63c7eae96b5ab',
+        $this->assertEquals($expectedArray, $api->create([
             'name' => 'Custom field name',
             'type' => 'text',
             'merge_tag' => 'custom_field_name',
+        ]));
+    }
+
+    /** @test */
+    public function shouldUpdateCustomField(): void
+    {
+        $expectedArray = [
+            'id' => 'cfld_63c7eae96b5ab',
+            'name' => 'New Custom field name',
+            'type' => 'text',
+            'merge_tag' => 'new_custom_field_name',
             'default_value' => null,
             'object' => 'custom-field',
         ];
@@ -95,13 +99,13 @@ class CustomFieldTest extends TestCase
         $api->expects($this->once())
             ->method('put')
             ->with('/custom-fields/cfld_63c7eae96b5ab')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
-        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab'));
+        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab',['name' => 'New Custom field name']));
     }
 
     /** @test */
-    public function shouldDestroyCustomField()
+    public function shouldDestroyCustomField(): void
     {
         $expectedArray = [
             'id' => 'cfld_63c7eae96b5ab',
@@ -117,7 +121,7 @@ class CustomFieldTest extends TestCase
         $api->expects($this->once())
             ->method('delete')
             ->with('/custom-fields/cfld_63c7eae96b5ab')
-            ->will($this->returnValue($expectedArray));
+            ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->destroy('cfld_63c7eae96b5ab'));
     }

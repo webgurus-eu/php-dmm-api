@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class BuilderTest extends TestCase
 {
     /** @test */
-    public function shouldGetHttpClient()
+    public function shouldGetHttpClient(): void
     {
         $builder = $this->getMockBuilder(Builder::class)
             ->onlyMethods(['addPlugin'])
