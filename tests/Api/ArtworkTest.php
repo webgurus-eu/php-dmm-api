@@ -63,12 +63,11 @@ class ArtworkTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'first_name' => 'John',
-            'address_line1' => '3198 Main St',
-            'address_city' => 'Tarpon Springs',
-            'address_state' => 'FL',
-            'address_country' => 'US',
-            'address_zip' => '55555',
+            'name' => 'My Artwork',
+            'description' => 'My Artwork description',
+            'size' => '4x6',
+            'side' => 'front',
+            'html' => '<html><body>My HTML</body></html>',
         ]));
     }
 
@@ -84,12 +83,9 @@ class ArtworkTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->update('art_61712e005470c', [
-            'first_name' => 'John',
-            'address_line1' => '3198 Main St',
-            'address_city' => 'Tarpon Springs',
-            'address_state' => 'FL',
-            'address_country' => 'US',
-            'address_zip' => '55555',
+            'name' => 'My Artwork',
+            'description' => 'My Artwork description',
+            'published_version' => 'art_vrsn_5f2ba56aa6d8e',
         ]));
     }
 
