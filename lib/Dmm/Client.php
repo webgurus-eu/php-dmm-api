@@ -7,6 +7,8 @@ use Dmm\Helpers\DiscoverApi;
 use Dmm\HttpClient\Api\AbstractApi;
 use Dmm\HttpClient\Api\Addresses;
 use Dmm\HttpClient\Api\Artworks;
+use Dmm\HttpClient\Api\ArtworkVersions;
+use Dmm\HttpClient\Api\CompanyAddresses;
 use Dmm\HttpClient\Api\CustomFields;
 use Dmm\HttpClient\Api\MailingLists;
 use Dmm\HttpClient\Api\Postcards;
@@ -27,6 +29,8 @@ use InvalidArgumentException;
  * @method Artworks artworks()
  * @method Segments segments()
  * @method Postcards postcards()
+ * @method ArtworkVersions artworkVersions()
+ * @method CompanyAddresses companyAddresses()
  */
 class Client
 {
