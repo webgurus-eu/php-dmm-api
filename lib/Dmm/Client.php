@@ -11,6 +11,8 @@ use Dmm\HttpClient\Api\ArtworkVersions;
 use Dmm\HttpClient\Api\CompanyAddresses;
 use Dmm\HttpClient\Api\CustomFields;
 use Dmm\HttpClient\Api\MailingLists;
+use Dmm\HttpClient\Api\Postcards;
+use Dmm\HttpClient\Api\Segments;
 use Dmm\HttpClient\Builder;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
@@ -25,6 +27,8 @@ use InvalidArgumentException;
  * @method MailingLists mailingLists()
  * @method Addresses addresses()
  * @method Artworks artworks()
+ * @method Segments segments()
+ * @method Postcards postcards()
  * @method ArtworkVersions artworkVersions()
  * @method CompanyAddresses companyAddresses()
  */
@@ -32,7 +36,7 @@ class Client
 {
 
     private Builder $httpClientBuilder;
-    private array $placeholder;
+    private array $apiClasses;
 
 
     public function __construct(private readonly string $token, Builder $httpClientBuilder = null)
@@ -61,7 +65,7 @@ class Client
             return new $value($this);
         }, $files, $keys);
 
-        $this->placeholder = array_combine($keys, $items);
+        $this->apiClasses = array_combine($keys, $items);
     }
 
     private function initDefaultPlugins(): void
@@ -100,10 +104,10 @@ class Client
 
     private function api(string $api): AbstractApi
     {
-        if (!array_key_exists($api, $this->placeholder)) {
+        if (!array_key_exists($api, $this->apiClasses)) {
             throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $api));
         }
 
-        return $this->placeholder[$api];
+        return $this->apiClasses[$api];
     }
 }
