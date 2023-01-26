@@ -10,6 +10,7 @@ use Dmm\HttpClient\Api\Artworks;
 use Dmm\HttpClient\Api\ArtworkVersions;
 use Dmm\HttpClient\Api\CompanyAddresses;
 use Dmm\HttpClient\Api\CustomFields;
+use Dmm\HttpClient\Api\Letters;
 use Dmm\HttpClient\Api\MailingLists;
 use Dmm\HttpClient\Api\Postcards;
 use Dmm\HttpClient\Api\Segments;
@@ -31,6 +32,7 @@ use InvalidArgumentException;
  * @method Postcards postcards()
  * @method ArtworkVersions artworkVersions()
  * @method CompanyAddresses companyAddresses()
+ * @method Letters letter()
  */
 class Client
 {
