@@ -9,7 +9,6 @@ use JsonException;
 
 abstract class AbstractApi
 {
-
     public function __construct(protected Client $client)
     {
     }

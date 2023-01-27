@@ -7,15 +7,15 @@ use Dmm\HttpClient\Api\Addresses;
 class AddressTest extends TestCase
 {
     protected array $addressObject = [
-        'id' => 'adr_63c7eae96b5ab',
-        'first_name' => 'John',
-        'last_name' => 'Doe',
-        'address_line1' => '3198 Main St',
-        'address_city' => 'Tarpon Springs',
-        'address_state' => 'FL',
+        'id'              => 'adr_63c7eae96b5ab',
+        'first_name'      => 'John',
+        'last_name'       => 'Doe',
+        'address_line1'   => '3198 Main St',
+        'address_city'    => 'Tarpon Springs',
+        'address_state'   => 'FL',
         'address_country' => 'US',
-        'metadata' => [],
-        'object' => 'address',
+        'metadata'        => [],
+        'object'          => 'address',
     ];
 
     public function testShouldShowAddressList(): void
@@ -25,7 +25,7 @@ class AddressTest extends TestCase
                 $this->addressObject,
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -45,7 +45,7 @@ class AddressTest extends TestCase
                 $this->addressObject,
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -84,12 +84,12 @@ class AddressTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'first_name' => 'John',
-            'address_line1' => '3198 Main St',
-            'address_city' => 'Tarpon Springs',
-            'address_state' => 'FL',
+            'first_name'      => 'John',
+            'address_line1'   => '3198 Main St',
+            'address_city'    => 'Tarpon Springs',
+            'address_state'   => 'FL',
             'address_country' => 'US',
-            'address_zip' => '55555',
+            'address_zip'     => '55555',
         ]));
     }
 
@@ -105,12 +105,12 @@ class AddressTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->update('adr_63c7eae96b5ab', [
-            'first_name' => 'John',
-            'address_line1' => '3198 Main St',
-            'address_city' => 'Tarpon Springs',
-            'address_state' => 'FL',
+            'first_name'      => 'John',
+            'address_line1'   => '3198 Main St',
+            'address_city'    => 'Tarpon Springs',
+            'address_state'   => 'FL',
             'address_country' => 'US',
-            'address_zip' => '55555',
+            'address_zip'     => '55555',
         ]));
     }
 
@@ -200,18 +200,18 @@ class AddressTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->import([
-            'url' => 'https://url-to-file',
+            'url'             => 'https://url-to-file',
             'mailing_list_id' => 'mlg_lst_5f29371e6f922',
-            'with_header' => true,
-            'header_mapping' => [
+            'with_header'     => true,
+            'header_mapping'  => [
                 'fields' => [
-                    0 => 'address_line1',
-                    1 => 'company',
-                    3 => 'first_name',
-                    4 => 'address_line2',
-                    5 => 'address_city',
-                    7 => 'last_name',
-                    9 => 'address_state',
+                    0  => 'address_line1',
+                    1  => 'company',
+                    3  => 'first_name',
+                    4  => 'address_line2',
+                    5  => 'address_city',
+                    7  => 'last_name',
+                    9  => 'address_state',
                     11 => 'address_zip',
                     14 => 'address_country',
                 ],

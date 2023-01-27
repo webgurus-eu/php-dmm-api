@@ -7,11 +7,11 @@ use Dmm\HttpClient\Api\ArtworkVersions;
 class ArtworkVersionTest extends TestCase
 {
     protected array $artworkVersionObject = [
-        'id' => 'art_vrsn_61712e005e018',
-        'name' => 'My Artwork Version',
+        'id'          => 'art_vrsn_61712e005e018',
+        'name'        => 'My Artwork Version',
         'description' => 'My Artwork Version description',
-        "html" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"><html><body>My HTML</body></html>",
-        'object' => 'version',
+        'html'        => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><html><body>My HTML</body></html>',
+        'object'      => 'version',
     ];
 
     public function testShouldShowAddressVersionList(): void
@@ -21,7 +21,7 @@ class ArtworkVersionTest extends TestCase
                 $this->artworkVersionObject,
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -60,9 +60,9 @@ class ArtworkVersionTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create('art_61712e005470c', [
-            'name' => 'My Artwork Version',
+            'name'        => 'My Artwork Version',
             'description' => 'My Artwork Version description',
-            'html' => "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"><html><body>My HTML</body></html>",
+            'html'        => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><html><body>My HTML</body></html>',
         ]));
     }
 
@@ -78,7 +78,7 @@ class ArtworkVersionTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->update('art_61712e005470c', 'art_vrsn_61712e005e018', [
-            'name' => 'My Artwork Version',
+            'name'        => 'My Artwork Version',
             'description' => 'My Artwork Version description',
         ]));
     }

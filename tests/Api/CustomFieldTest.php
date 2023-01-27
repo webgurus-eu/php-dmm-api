@@ -12,16 +12,16 @@ class CustomFieldTest extends TestCase
         $expectedArray = [
             'data' => [
                 [
-                    'id' => 'cfld_63c7eae96b5ab',
-                    'name' => 'Custom field name',
-                    'type' => 'text',
-                    'merge_tag' => 'custom_field_name',
+                    'id'            => 'cfld_63c7eae96b5ab',
+                    'name'          => 'Custom field name',
+                    'type'          => 'text',
+                    'merge_tag'     => 'custom_field_name',
                     'default_value' => null,
-                    'object' => 'custom-field',
+                    'object'        => 'custom-field',
                 ],
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -38,12 +38,12 @@ class CustomFieldTest extends TestCase
     public function shouldShowCustomField(): void
     {
         $expectedArray = [
-            'id' => 'cfld_63c7eae96b5ab',
-            'name' => 'Custom field name',
-            'type' => 'text',
-            'merge_tag' => 'custom_field_name',
+            'id'            => 'cfld_63c7eae96b5ab',
+            'name'          => 'Custom field name',
+            'type'          => 'text',
+            'merge_tag'     => 'custom_field_name',
             'default_value' => null,
-            'object' => 'custom-field',
+            'object'        => 'custom-field',
         ];
 
         $api = $this->getApiMock();
@@ -60,12 +60,12 @@ class CustomFieldTest extends TestCase
     public function shouldCreateCustomField(): void
     {
         $expectedArray = [
-            'id' => 'cfld_63c7eae96b5ab',
-            'name' => 'Custom field name',
-            'type' => 'text',
-            'merge_tag' => 'custom_field_name',
+            'id'            => 'cfld_63c7eae96b5ab',
+            'name'          => 'Custom field name',
+            'type'          => 'text',
+            'merge_tag'     => 'custom_field_name',
             'default_value' => null,
-            'object' => 'custom-field',
+            'object'        => 'custom-field',
         ];
 
         $api = $this->getApiMock();
@@ -76,8 +76,8 @@ class CustomFieldTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'name' => 'Custom field name',
-            'type' => 'text',
+            'name'      => 'Custom field name',
+            'type'      => 'text',
             'merge_tag' => 'custom_field_name',
         ]));
     }
@@ -86,12 +86,12 @@ class CustomFieldTest extends TestCase
     public function shouldUpdateCustomField(): void
     {
         $expectedArray = [
-            'id' => 'cfld_63c7eae96b5ab',
-            'name' => 'New Custom field name',
-            'type' => 'text',
-            'merge_tag' => 'new_custom_field_name',
+            'id'            => 'cfld_63c7eae96b5ab',
+            'name'          => 'New Custom field name',
+            'type'          => 'text',
+            'merge_tag'     => 'new_custom_field_name',
             'default_value' => null,
-            'object' => 'custom-field',
+            'object'        => 'custom-field',
         ];
 
         $api = $this->getApiMock();
@@ -101,19 +101,19 @@ class CustomFieldTest extends TestCase
             ->with('/custom-fields/cfld_63c7eae96b5ab')
             ->willReturn($expectedArray);
 
-        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab',['name' => 'New Custom field name']));
+        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab', ['name' => 'New Custom field name']));
     }
 
     /** @test */
     public function shouldDestroyCustomField(): void
     {
         $expectedArray = [
-            'id' => 'cfld_63c7eae96b5ab',
-            'name' => 'Custom field name',
-            'type' => 'text',
-            'merge_tag' => 'custom_field_name',
+            'id'            => 'cfld_63c7eae96b5ab',
+            'name'          => 'Custom field name',
+            'type'          => 'text',
+            'merge_tag'     => 'custom_field_name',
             'default_value' => null,
-            'object' => 'custom-field',
+            'object'        => 'custom-field',
         ];
 
         $api = $this->getApiMock();

@@ -7,14 +7,14 @@ use Dmm\HttpClient\Api\Artworks;
 class ArtworkTest extends TestCase
 {
     protected array $artworkObject = [
-        'id' => 'art_61712e005470c',
-        'name' => 'My Artwork',
+        'id'          => 'art_61712e005470c',
+        'name'        => 'My Artwork',
         'description' => 'My detailed description of the artwork',
-        'size' => '4x6',
-        'side' => 'front',
-        'pdf_url' => null,
-        'thumbnails' => null,
-        'object' => 'artwork',
+        'size'        => '4x6',
+        'side'        => 'front',
+        'pdf_url'     => null,
+        'thumbnails'  => null,
+        'object'      => 'artwork',
     ];
 
     public function testShouldShowAddressList(): void
@@ -24,7 +24,7 @@ class ArtworkTest extends TestCase
                 $this->artworkObject,
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -63,11 +63,11 @@ class ArtworkTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'name' => 'My Artwork',
+            'name'        => 'My Artwork',
             'description' => 'My Artwork description',
-            'size' => '4x6',
-            'side' => 'front',
-            'html' => '<html><body>My HTML</body></html>',
+            'size'        => '4x6',
+            'side'        => 'front',
+            'html'        => '<html><body>My HTML</body></html>',
         ]));
     }
 
@@ -83,8 +83,8 @@ class ArtworkTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->update('art_61712e005470c', [
-            'name' => 'My Artwork',
-            'description' => 'My Artwork description',
+            'name'              => 'My Artwork',
+            'description'       => 'My Artwork description',
             'published_version' => 'art_vrsn_5f2ba56aa6d8e',
         ]));
     }
@@ -126,11 +126,11 @@ class ArtworkTest extends TestCase
     public function testShouldGenerateArtworkPreview(): void
     {
         $expectedArray = [
-            'url' => 'https://html2pdf-golang.s3.amazonaws.com/previews/ffb5c4c74f6a490d91d85c3b8f009578.pdf',
+            'url'        => 'https://html2pdf-golang.s3.amazonaws.com/previews/ffb5c4c74f6a490d91d85c3b8f009578.pdf',
             'thumbnails' => [
-                'small' => 'https://html2pdf-golang.s3.amazonaws.com/previews/thumbnails/ffb5c4c74f6a490d91d85c3b8f009578_front_small.jpeg',
+                'small'  => 'https://html2pdf-golang.s3.amazonaws.com/previews/thumbnails/ffb5c4c74f6a490d91d85c3b8f009578_front_small.jpeg',
                 'medium' => 'https://html2pdf-golang.s3.amazonaws.com/previews/thumbnails/ffb5c4c74f6a490d91d85c3b8f009578_front_medium.jpeg',
-                'large' => 'https://html2pdf-golang.s3.amazonaws.com/previews/thumbnails/ffb5c4c74f6a490d91d85c3b8f009578_front_large.jpeg',
+                'large'  => 'https://html2pdf-golang.s3.amazonaws.com/previews/thumbnails/ffb5c4c74f6a490d91d85c3b8f009578_front_large.jpeg',
             ],
         ];
 
@@ -142,11 +142,11 @@ class ArtworkTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->generatePreview('art_61712e005470c', [
-            'type' => 'postcard',
+            'type'            => 'postcard',
             'merge_variables' => [
                 'first_name' => 'John',
-                'discount' => '80%',
-                'expires' => '31 July, 2020',
+                'discount'   => '80%',
+                'expires'    => '31 July, 2020',
             ],
         ]));
     }

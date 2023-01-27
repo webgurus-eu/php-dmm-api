@@ -13,7 +13,7 @@ class ResponseTest extends TestCase
         $body = ['foo' => 'bar'];
         $response = new \GuzzleHttp\Psr7\Response(
             200,
-            ['Content-Type'=>'application/json'],
+            ['Content-Type'=> 'application/json'],
             json_encode($body)
         );
 
@@ -27,8 +27,8 @@ class ResponseTest extends TestCase
         $body = ['foo' => 'bar'];
         $response = new \GuzzleHttp\Psr7\Response(
             200,
-            ['Content-Type'=>'application/json'],
-            json_encode($body) . 'safag'
+            ['Content-Type'=> 'application/json'],
+            json_encode($body).'safag'
         );
 
         Response::json($response);

@@ -24,22 +24,20 @@ use Http\Message\Authentication\Bearer;
 use InvalidArgumentException;
 
 /**
- * @method CustomFields customFields()
- * @method MailingLists mailingLists()
- * @method Addresses addresses()
- * @method Artworks artworks()
- * @method Segments segments()
- * @method Postcards postcards()
- * @method ArtworkVersions artworkVersions()
+ * @method CustomFields     customFields()
+ * @method MailingLists     mailingLists()
+ * @method Addresses        addresses()
+ * @method Artworks         artworks()
+ * @method Segments         segments()
+ * @method Postcards        postcards()
+ * @method ArtworkVersions  artworkVersions()
  * @method CompanyAddresses companyAddresses()
- * @method Letters letter()
+ * @method Letters          letter()
  */
 class Client
 {
-
     private Builder $httpClientBuilder;
     private array $apiClasses;
-
 
     public function __construct(private readonly string $token, Builder $httpClientBuilder = null)
     {
@@ -55,10 +53,9 @@ class Client
         defined('__BASE_PATH__') or define('__BASE_PATH__', dirname(__DIR__));
     }
 
-
     private function autoDiscoverApi(): void
     {
-        $path = sprintf("%s/HttpClient/Api", __DIR__);
+        $path = sprintf('%s/HttpClient/Api', __DIR__);
 
         $files = DiscoverApi::within($path, __BASE_PATH__);
 
@@ -74,9 +71,9 @@ class Client
     {
         $this->httpClientBuilder->addPlugin(new BaseUriPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://api.directmailmanager.com/api')));
         $this->httpClientBuilder->addPlugin(new HeaderDefaultsPlugin([
-            'User-Agent' => 'php-dmm-api ()',
+            'User-Agent'   => 'php-dmm-api ()',
             'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
+            'Accept'       => 'application/json',
         ]));
     }
 

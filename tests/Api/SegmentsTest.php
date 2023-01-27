@@ -11,20 +11,20 @@ class SegmentsTest extends TestCase
         $expectedArray = [
             'data' => [
                 [
-                    'id' => 'sgm_52dg4bd4922fe',
-                    'name' => 'Segment Name',
-                    'total' => 2,
+                    'id'         => 'sgm_52dg4bd4922fe',
+                    'name'       => 'Segment Name',
+                    'total'      => 2,
                     'conditions' => [
-                        'column' => 'address_city',
-                        'value' => 'Tampa',
+                        'column'   => 'address_city',
+                        'value'    => 'Tampa',
                         'operator' => 'contains',
-                        'boolean' => 'or'
+                        'boolean'  => 'or',
                     ],
-                    'object' => 'segment'
+                    'object' => 'segment',
                 ],
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -41,40 +41,40 @@ class SegmentsTest extends TestCase
         $expectedArray = [
             'data' => [
                 [
-                    'id' => 'adr_63759adf5bdab',
+                    'id'            => 'adr_63759adf5bdab',
                     'mailing_lists' => [
-                        'id' => 'mlg_lst_62449s3e5c7eb',
-                        'name' => 'Mailing List name',
+                        'id'              => 'mlg_lst_62449s3e5c7eb',
+                        'name'            => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object'          => 'mailing-list',
                     ],
-                    'first_name' => 'John',
-                    'last_name' => 'Doe',
-                    'address_line1' => '3198 Main St',
-                    'address_city' => 'Tarpon Springs',
-                    'address_state' => 'FL',
+                    'first_name'      => 'John',
+                    'last_name'       => 'Doe',
+                    'address_line1'   => '3198 Main St',
+                    'address_city'    => 'Tarpon Springs',
+                    'address_state'   => 'FL',
                     'address_country' => 'US',
-                    'metadata' => [],
+                    'metadata'        => [],
                 ],
                 [
-                    'id' => 'adr_63739adf5bdab',
+                    'id'            => 'adr_63739adf5bdab',
                     'mailing_lists' => [
-                        'id' => 'mlg_lst_62449s3e5c7eb',
-                        'name' => 'Mailing List name',
+                        'id'              => 'mlg_lst_62449s3e5c7eb',
+                        'name'            => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object'          => 'mailing-list',
                     ],
-                    'first_name' => 'Jane',
-                    'last_name' => 'Doe',
-                    'address_line1' => '3198 Main St',
-                    'address_city' => 'Tarpon Springs',
-                    'address_state' => 'FL',
+                    'first_name'      => 'Jane',
+                    'last_name'       => 'Doe',
+                    'address_line1'   => '3198 Main St',
+                    'address_city'    => 'Tarpon Springs',
+                    'address_state'   => 'FL',
                     'address_country' => 'US',
-                    'metadata' => [],
-                ]
+                    'metadata'        => [],
+                ],
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -89,23 +89,23 @@ class SegmentsTest extends TestCase
     public function testShouldShowSegment(): void
     {
         $expectedArray = [
-            'id' => 'sgm_52dg4bd4922fe',
-            'name' => 'Segment Name',
-            'total' => 2,
+            'id'         => 'sgm_52dg4bd4922fe',
+            'name'       => 'Segment Name',
+            'total'      => 2,
             'conditions' => [
-                'column' => 'address_city',
-                'value' => 'Tampa',
+                'column'   => 'address_city',
+                'value'    => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean'  => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
 
         $api->expects($this->once())
             ->method('get')
-            ->with("/segments/sgm_52dg4bd4922fe")
+            ->with('/segments/sgm_52dg4bd4922fe')
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('sgm_52dg4bd4922fe'));
@@ -114,16 +114,16 @@ class SegmentsTest extends TestCase
     public function testShouldCreateSegment(): void
     {
         $expectedArray = [
-            'id' => 'sgm_52dg4bd4922fe',
-            'name' => 'Segment Name',
-            'total' => 2,
+            'id'         => 'sgm_52dg4bd4922fe',
+            'name'       => 'Segment Name',
+            'total'      => 2,
             'conditions' => [
-                'column' => 'address_city',
-                'value' => 'Tampa',
+                'column'   => 'address_city',
+                'value'    => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean'  => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
@@ -134,29 +134,29 @@ class SegmentsTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'name' => 'Segment Name',
+            'name'       => 'Segment Name',
             'conditions' => [
-                'column' => 'address_city',
-                'value' => 'Tampa',
+                'column'   => 'address_city',
+                'value'    => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
-            ]
+                'boolean'  => 'or',
+            ],
         ]));
     }
 
     public function testShouldUpdateSegment(): void
     {
         $expectedArray = [
-            'id' => 'sgm_52dg4bd4922fe',
-            'name' => 'New Segment Name',
-            'total' => 2,
+            'id'         => 'sgm_52dg4bd4922fe',
+            'name'       => 'New Segment Name',
+            'total'      => 2,
             'conditions' => [
-                'column' => 'address_city',
-                'value' => 'Tampa',
+                'column'   => 'address_city',
+                'value'    => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean'  => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
@@ -172,16 +172,16 @@ class SegmentsTest extends TestCase
     public function testShouldDestroySegment(): void
     {
         $expectedArray = [
-            'id' => 'sgm_52dg4bd4922fe',
-            'name' => 'New Segment Name',
-            'total' => 2,
+            'id'         => 'sgm_52dg4bd4922fe',
+            'name'       => 'New Segment Name',
+            'total'      => 2,
             'conditions' => [
-                'column' => 'address_city',
-                'value' => 'Tampa',
+                'column'   => 'address_city',
+                'value'    => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean'  => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();

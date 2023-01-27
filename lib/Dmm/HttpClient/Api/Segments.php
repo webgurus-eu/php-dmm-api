@@ -9,6 +9,7 @@ class Segments extends AbstractApi
 {
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NTY-list-all-segments
+     *
      * @throws Exception |JsonException
      */
     public function list(array $params = []): array|string
@@ -16,9 +17,9 @@ class Segments extends AbstractApi
         return $this->get('/segments', $params);
     }
 
-
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NjE-list-segmented-addresses
+     *
      * @throws Exception |JsonException
      */
     public function listAddresses($id, array $params = []): array|string
@@ -28,6 +29,7 @@ class Segments extends AbstractApi
 
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NTg-retrieve-a-segment
+     *
      * @throws Exception | JsonException
      */
     public function retrieve(string $id, array $params = []): array|string
@@ -37,6 +39,7 @@ class Segments extends AbstractApi
 
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NTc-create-a-segment
+     *
      * @throws JsonException
      */
     public function create(array $payload): array|string
@@ -46,6 +49,7 @@ class Segments extends AbstractApi
 
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NTk-update-a-segment
+     *
      * @throws Exception|JsonException
      */
     public function update(string $id, array $payload): array|string
@@ -55,6 +59,7 @@ class Segments extends AbstractApi
 
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MjU4MTE3NjA-delete-a-segment
+     *
      * @throws Exception|JsonException
      */
     public function destroy(string $id): array|string

@@ -7,16 +7,16 @@ use Dmm\HttpClient\Api\CompanyAddresses;
 class CompanyAddressTest extends TestCase
 {
     protected array $companyAddressObject = [
-        'id' => 'cmpny_adr_5f2ba56aa6d8e',
-        'first_name' => 'Jeff',
-        'last_name' => 'Kingsford',
-        'company' => 'One Brand Marketing',
+        'id'            => 'cmpny_adr_5f2ba56aa6d8e',
+        'first_name'    => 'Jeff',
+        'last_name'     => 'Kingsford',
+        'company'       => 'One Brand Marketing',
         'address_line1' => '425 East Spruce Street',
-        'address_line2' => NULL,
-        'address_city' => 'Tarpon Springs',
+        'address_line2' => null,
+        'address_city'  => 'Tarpon Springs',
         'address_state' => 'FL',
-        'address_zip' => 34689,
-        'object' => 'company-address',
+        'address_zip'   => 34689,
+        'object'        => 'company-address',
     ];
 
     public function testShouldShowCompanyAddressList(): void
@@ -26,7 +26,7 @@ class CompanyAddressTest extends TestCase
                 $this->companyAddressObject,
             ],
             'links' => [],
-            'meta' => [],
+            'meta'  => [],
         ];
 
         $api = $this->getApiMock();
@@ -51,14 +51,14 @@ class CompanyAddressTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->create([
-            'first_name' => 'Jeff',
-            'last_name' => 'Kingsford',
-            'company' => 'One Brand Marketing',
+            'first_name'    => 'Jeff',
+            'last_name'     => 'Kingsford',
+            'company'       => 'One Brand Marketing',
             'address_line1' => '425 East Spruce Street',
-            'address_line2' => NULL,
-            'address_city' => 'Tarpon Springs',
+            'address_line2' => null,
+            'address_city'  => 'Tarpon Springs',
             'address_state' => 'FL',
-            'address_zip' => 34689,
+            'address_zip'   => 34689,
         ]));
     }
 
