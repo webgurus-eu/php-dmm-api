@@ -6,8 +6,8 @@ use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin;
 use Http\Client\Common\PluginClientFactory;
-use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -22,7 +22,7 @@ class Builder
 
     public function __construct(ClientInterface $httpClient = null, RequestFactoryInterface $requestFactoryContract = null, StreamFactoryInterface $streamFactory = null)
     {
-        $this->httpClient = $httpClient ?: HttpClientDiscovery::find();
+        $this->httpClient = $httpClient ?: Psr18ClientDiscovery::find();
         $this->requestFactoryContract = $requestFactoryContract ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactoryContract = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
     }
