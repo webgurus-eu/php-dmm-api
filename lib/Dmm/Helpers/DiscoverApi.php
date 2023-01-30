@@ -28,7 +28,6 @@ class DiscoverApi
             $libPath = trim(substr_replace($file->getRealPath(), '', $position, strlen($basePath)), DIRECTORY_SEPARATOR);
             $class = str_replace(DIRECTORY_SEPARATOR, '\\', ucfirst(str_replace('.php', '', $libPath)));
 
-
             try {
                 $ref = new ReflectionClass($class);
             } catch (ReflectionException $e) {
@@ -39,14 +38,9 @@ class DiscoverApi
                 continue;
             }
 
-            $apiObjects[strtolower($ref->getShortName())] = $ref->name;
-
-
+            $apiObjects[lcfirst($ref->getShortName())] = $ref->name;
         }
-
 
         return $apiObjects;
     }
-
-
 }
