@@ -10,7 +10,7 @@ class ArtworkVersionTest extends TestCase
         'id' => 'art_vrsn_61712e005e018',
         'name' => 'My Artwork Version',
         'description' => 'My Artwork Version description',
-        "html" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"><html><body>My HTML</body></html>",
+        'html' => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><html><body>My HTML</body></html>',
         'object' => 'version',
     ];
 
@@ -62,7 +62,7 @@ class ArtworkVersionTest extends TestCase
         $this->assertEquals($expectedArray, $api->create('art_61712e005470c', [
             'name' => 'My Artwork Version',
             'description' => 'My Artwork Version description',
-            'html' => "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"><html><body>My HTML</body></html>",
+            'html' => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><html><body>My HTML</body></html>',
         ]));
     }
 

@@ -12,7 +12,9 @@ use ReflectionException;
 
 class AbstractApiTest extends TestCase
 {
-    /** @test
+    /**
+     * @test
+     *
      * @throws JsonException
      * @throws ReflectionException
      */
@@ -77,7 +79,9 @@ class AbstractApiTest extends TestCase
         return AbstractApi::class;
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws ReflectionException
      * @throws JsonException
      */
@@ -107,7 +111,9 @@ class AbstractApiTest extends TestCase
         $this->assertEquals($expectedArray, $actual);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws JsonException
      * @throws ReflectionException
      */
@@ -137,7 +143,9 @@ class AbstractApiTest extends TestCase
         $this->assertEquals($expectedArray, $actual);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws JsonException
      * @throws ReflectionException
      */
@@ -167,7 +175,9 @@ class AbstractApiTest extends TestCase
         $this->assertEquals($expectedArray, $actual);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws JsonException
      * @throws ReflectionException
      */

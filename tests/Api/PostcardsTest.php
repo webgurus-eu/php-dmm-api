@@ -7,7 +7,6 @@ use Dmm\Tests\Api\TestCase;
 
 class PostcardsTest extends TestCase
 {
-
     public function testShouldShowPostcardList(): void
     {
         $expectedArray = [
@@ -98,7 +97,6 @@ class PostcardsTest extends TestCase
             'object' => 'list',
         ];
 
-
         $api = $this->getApiMock();
         $api->expects($this->once())
             ->method('get')
@@ -106,9 +104,7 @@ class PostcardsTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->list());
-
     }
-
 
     public function testShouldShowAnPostcard(): void
     {
@@ -152,14 +148,14 @@ class PostcardsTest extends TestCase
                 'cancellation_time' => 140130,
                 'created_by' => null,
                 'object' => 'postcard',
-            ]
+            ],
         ];
 
         $api = $this->getApiMock();
 
         $api->expects($this->once())
             ->method('get')
-            ->with("/postcards/psc_6177c49a2a8ce")
+            ->with('/postcards/psc_6177c49a2a8ce')
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('psc_6177c49a2a8ce'));
@@ -208,7 +204,6 @@ class PostcardsTest extends TestCase
             'object' => 'postcard',
         ];
 
-
         $api = $this->getApiMock();
 
         $api->expects($this->once())
@@ -251,7 +246,6 @@ class PostcardsTest extends TestCase
         $this->assertEquals($expectedArray, $api->create($payload));
     }
 
-
     public function testShouldDestroyPostcard(): void
     {
         $expectedArray = [
@@ -281,9 +275,7 @@ class PostcardsTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->cancel('psc_616e88e60235d'));
-
     }
-
 
     protected function getApiClass(): string
     {

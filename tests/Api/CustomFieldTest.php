@@ -101,7 +101,7 @@ class CustomFieldTest extends TestCase
             ->with('/custom-fields/cfld_63c7eae96b5ab')
             ->willReturn($expectedArray);
 
-        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab',['name' => 'New Custom field name']));
+        $this->assertEquals($expectedArray, $api->update('cfld_63c7eae96b5ab', ['name' => 'New Custom field name']));
     }
 
     /** @test */
