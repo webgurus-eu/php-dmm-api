@@ -63,7 +63,6 @@ class LettersTest extends TestCase
             'object' => 'list',
         ];
 
-
         $api = $this->getApiMock();
         $api->expects($this->once())
             ->method('get')
@@ -71,7 +70,6 @@ class LettersTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->list());
-
     }
 
     public function testShouldShowAnLetter(): void
@@ -82,7 +80,7 @@ class LettersTest extends TestCase
 
         $api->expects($this->once())
             ->method('get')
-            ->with("/letters/psc_6177c49a2a8ce")
+            ->with('/letters/psc_6177c49a2a8ce')
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('psc_6177c49a2a8ce'));
@@ -165,7 +163,6 @@ class LettersTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->cancel('ltr_6177c49a2a8ce'));
-
     }
 
     protected function getApiClass(): string

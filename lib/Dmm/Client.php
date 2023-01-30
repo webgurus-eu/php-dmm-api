@@ -36,10 +36,8 @@ use InvalidArgumentException;
  */
 class Client
 {
-
     private Builder $httpClientBuilder;
     private array $apiClasses;
-
 
     public function __construct(private string $token, Builder $httpClientBuilder = null)
     {
@@ -54,7 +52,6 @@ class Client
     {
         defined('__BASE_PATH__') or define('__BASE_PATH__', dirname(__DIR__));
     }
-
 
     private function autoDiscoverApi(): void
     {

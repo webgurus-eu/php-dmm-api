@@ -6,7 +6,6 @@ use Dmm\HttpClient\Api\MailingLists;
 
 class MailingListsTest extends TestCase
 {
-
     public function testShouldShowMailingListsList(): void
     {
         $expectedArray = [
@@ -15,7 +14,7 @@ class MailingListsTest extends TestCase
                     'id' => 'mlg_lst_62449s3e5c7eb',
                     'name' => 'Mailing List name',
                     'addresses_count' => 2,
-                    'object' => 'mailing-list'
+                    'object' => 'mailing-list',
 
                 ],
             ],
@@ -32,7 +31,6 @@ class MailingListsTest extends TestCase
         $this->assertEquals($expectedArray, $api->list());
     }
 
-
     public function testShouldShowAddressesFromMailingList(): void
     {
         $expectedArray = [
@@ -43,7 +41,7 @@ class MailingListsTest extends TestCase
                         'id' => 'mlg_lst_62449s3e5c7eb',
                         'name' => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object' => 'mailing-list',
                     ],
                     'first_name' => 'John',
                     'last_name' => 'Doe',
@@ -59,7 +57,7 @@ class MailingListsTest extends TestCase
                         'id' => 'mlg_lst_62449s3e5c7eb',
                         'name' => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object' => 'mailing-list',
                     ],
                     'first_name' => 'Jane',
                     'last_name' => 'Doe',
@@ -68,7 +66,7 @@ class MailingListsTest extends TestCase
                     'address_state' => 'FL',
                     'address_country' => 'US',
                     'metadata' => [],
-                ]
+                ],
             ],
             'links' => [],
             'meta' => [],
@@ -83,26 +81,24 @@ class MailingListsTest extends TestCase
         $this->assertEquals($expectedArray, $api->listAddresses('mlg_lst_62449s3e5c7eb'));
     }
 
-
     public function testShouldShowMailingList(): void
     {
         $expectedArray = [
             'id' => 'mlg_lst_62449s3e5c7eb',
             'name' => 'Mailing List name',
             'addresses_count' => 2,
-            'object' => 'mailing-list'
+            'object' => 'mailing-list',
         ];
 
         $api = $this->getApiMock();
 
         $api->expects($this->once())
             ->method('get')
-            ->with("/mailing-lists/mlg_lst_62449s3e5c7eb")
+            ->with('/mailing-lists/mlg_lst_62449s3e5c7eb')
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('mlg_lst_62449s3e5c7eb'));
     }
-
 
     public function testShouldCreateMailingList(): void
     {
@@ -110,7 +106,7 @@ class MailingListsTest extends TestCase
             'id' => 'mlg_lst_62449s3e5c7eb',
             'name' => 'Mailing List name',
             'addresses_count' => 2,
-            'object' => 'mailing-list'
+            'object' => 'mailing-list',
         ];
 
         $api = $this->getApiMock();
@@ -129,7 +125,7 @@ class MailingListsTest extends TestCase
             'id' => 'mlg_lst_62449s3e5c7eb',
             'name' => 'New Mailing List name',
             'addresses_count' => 2,
-            'object' => 'mailing-list'
+            'object' => 'mailing-list',
         ];
 
         $api = $this->getApiMock();
@@ -139,7 +135,7 @@ class MailingListsTest extends TestCase
             ->with('/mailing-lists/mlg_lst_62449s3e5c7eb')
             ->willReturn($expectedArray);
 
-        $this->assertEquals($expectedArray, $api->update('mlg_lst_62449s3e5c7eb',['name' => 'New Mailing List name']));
+        $this->assertEquals($expectedArray, $api->update('mlg_lst_62449s3e5c7eb', ['name' => 'New Mailing List name']));
     }
 
     public function testShouldDestroyMailingList(): void
@@ -148,7 +144,7 @@ class MailingListsTest extends TestCase
             'id' => 'mlg_lst_62449s3e5c7eb',
             'name' => 'Mailing List name',
             'addresses_count' => 2,
-            'object' => 'mailing-list'
+            'object' => 'mailing-list',
         ];
 
         $api = $this->getApiMock();
@@ -159,7 +155,6 @@ class MailingListsTest extends TestCase
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->destroy('mlg_lst_62449s3e5c7eb'));
-
     }
 
     protected function getApiClass(): string

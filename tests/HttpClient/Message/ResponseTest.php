@@ -28,7 +28,7 @@ class ResponseTest extends TestCase
         $response = new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type'=>'application/json'],
-            json_encode($body) . 'safag'
+            json_encode($body).'safag'
         );
 
         Response::json($response);
