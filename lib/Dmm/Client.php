@@ -41,7 +41,7 @@ class Client
     private array $apiClasses;
 
 
-    public function __construct(private readonly string $token, Builder $httpClientBuilder = null)
+    public function __construct(private string $token, Builder $httpClientBuilder = null)
     {
         $this->httpClientBuilder = $httpClientBuilder ?: new Builder();
         $this->defineBasePath();
