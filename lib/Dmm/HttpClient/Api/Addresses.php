@@ -17,6 +17,7 @@ class Addresses extends AbstractApi
     {
         return $this->get('/addresses', $params);
     }
+
     /**
      * @link https://apidocs.directmailmanager.com/docs/dmm-v3-api/b3A6MzU3OTUxODQ-list-all-suppressed-addresses
      *

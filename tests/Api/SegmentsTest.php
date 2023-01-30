@@ -18,9 +18,9 @@ class SegmentsTest extends TestCase
                         'column' => 'address_city',
                         'value' => 'Tampa',
                         'operator' => 'contains',
-                        'boolean' => 'or'
+                        'boolean' => 'or',
                     ],
-                    'object' => 'segment'
+                    'object' => 'segment',
                 ],
             ],
             'links' => [],
@@ -46,7 +46,7 @@ class SegmentsTest extends TestCase
                         'id' => 'mlg_lst_62449s3e5c7eb',
                         'name' => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object' => 'mailing-list',
                     ],
                     'first_name' => 'John',
                     'last_name' => 'Doe',
@@ -62,7 +62,7 @@ class SegmentsTest extends TestCase
                         'id' => 'mlg_lst_62449s3e5c7eb',
                         'name' => 'Mailing List name',
                         'addresses_count' => 2,
-                        'object' => 'mailing-list'
+                        'object' => 'mailing-list',
                     ],
                     'first_name' => 'Jane',
                     'last_name' => 'Doe',
@@ -71,7 +71,7 @@ class SegmentsTest extends TestCase
                     'address_state' => 'FL',
                     'address_country' => 'US',
                     'metadata' => [],
-                ]
+                ],
             ],
             'links' => [],
             'meta' => [],
@@ -96,16 +96,16 @@ class SegmentsTest extends TestCase
                 'column' => 'address_city',
                 'value' => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean' => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
 
         $api->expects($this->once())
             ->method('get')
-            ->with("/segments/sgm_52dg4bd4922fe")
+            ->with('/segments/sgm_52dg4bd4922fe')
             ->willReturn($expectedArray);
 
         $this->assertEquals($expectedArray, $api->retrieve('sgm_52dg4bd4922fe'));
@@ -121,9 +121,9 @@ class SegmentsTest extends TestCase
                 'column' => 'address_city',
                 'value' => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean' => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
@@ -139,8 +139,8 @@ class SegmentsTest extends TestCase
                 'column' => 'address_city',
                 'value' => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
-            ]
+                'boolean' => 'or',
+            ],
         ]));
     }
 
@@ -154,9 +154,9 @@ class SegmentsTest extends TestCase
                 'column' => 'address_city',
                 'value' => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean' => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();
@@ -179,9 +179,9 @@ class SegmentsTest extends TestCase
                 'column' => 'address_city',
                 'value' => 'Tampa',
                 'operator' => 'contains',
-                'boolean' => 'or'
+                'boolean' => 'or',
             ],
-            'object' => 'segment'
+            'object' => 'segment',
         ];
 
         $api = $this->getApiMock();

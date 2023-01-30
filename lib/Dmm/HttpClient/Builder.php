@@ -14,7 +14,6 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 class Builder
 {
-
     private ClientInterface $httpClient;
     private RequestFactoryInterface $requestFactoryContract;
     private StreamFactoryInterface $streamFactoryContract;
@@ -40,5 +39,4 @@ class Builder
     {
         $this->plugins[] = $plugin;
     }
-
 }
