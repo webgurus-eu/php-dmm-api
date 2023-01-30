@@ -58,7 +58,7 @@ class Client
 
     private function autoDiscoverApi(): void
     {
-        $path = sprintf("%s/HttpClient/Api", __DIR__);
+        $path = sprintf('%s/HttpClient/Api', __DIR__);
 
         $files = DiscoverApi::within($path, __BASE_PATH__);
 

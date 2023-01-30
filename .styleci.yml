@@ -6,3 +6,5 @@ enabled:
 disabled:
   - align_double_arrow
   - no_multiline_whitespace_before_semicolons
+  - align_phpdoc
+  - phpdoc_align
